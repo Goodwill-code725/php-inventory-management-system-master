@@ -387,7 +387,7 @@
                     <label for="quantity_${ingredientCount}" class="col-sm-3 control-label">Cost:</label>
                     <label class="col-sm-1 control-label">:</label>
                     <div class="col-sm-8">
-                        <input type="number" class="form-control" name="ingredient_quantity[]" placeholder="Cost">
+                        <input type="number" class="form-control" name="ingredient_cost[]" placeholder="Cost">
                     </div>
                 </div>
 				<div class="form-group">
