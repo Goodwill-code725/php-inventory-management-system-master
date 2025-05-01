@@ -51,7 +51,7 @@
 	      	<div id="add-brand-messages"></div>
 
 	        <div class="form-group">
-	        	<label for="brandName" class="col-sm-3 control-label">Requested By: </label>
+	        	<label for="brandName" class="col-sm-3 control-label">Storage Name: </label>
 	        	<label class="col-sm-1 control-label">: </label>
 				    <div class="col-sm-8">
 				      <input type="text" class="form-control" id="brandName" placeholder="Requested By" name="brandName" autocomplete="off">

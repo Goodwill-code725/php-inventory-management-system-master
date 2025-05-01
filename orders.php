@@ -252,7 +252,7 @@ if($_GET['o'] == 'add') {
 					<tr>
 						<th>#</th>
 						<th>Order Date</th>
-						<th>Client Name</th>
+						<th>Ordered by</th>
 						<th>Contact</th>
 						<th>Total Order Item</th>
 						<th>Payment Status</th>

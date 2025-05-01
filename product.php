@@ -391,12 +391,20 @@
                     </div>
                 </div>
 				<div class="form-group">
+                    <label for="quantity_${ingredientCount}" class="col-sm-3 control-label">Quantity/Product:</label>
+                    <label class="col-sm-1 control-label">:</label>
+                    <div class="col-sm-8">
+                        <input type="number" class="form-control" name="ingredient_quantity_per_product[]" placeholder="Enter quantity per/product">
+                    </div>
+                </div>
+				<div class="form-group">
                     <label for="quantity_${ingredientCount}" class="col-sm-3 control-label">Quantity:</label>
                     <label class="col-sm-1 control-label">:</label>
                     <div class="col-sm-8">
                         <input type="number" class="form-control" name="ingredient_quantity[]" placeholder="Quantity">
                     </div>
                 </div>
+				
                 <button type="button" class="btn btn-danger removeIngredientBtn" data-id="${ingredientCount}">Remove</button>
             </div>
         `;
