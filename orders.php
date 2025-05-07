@@ -119,11 +119,12 @@ if($_GET['o'] == 'add') {
 			  					<input type="text" name="rate[]" id="rate<?php echo $x; ?>" autocomplete="off" disabled="true" class="form-control" />			  					
 			  					<input type="hidden" name="rateValue[]" id="rateValue<?php echo $x; ?>" autocomplete="off" class="form-control" />			  					
 			  				</td>
-							<td style="padding-left:20px;">
-			  					<div class="form-group">
-									<p id="available_quantity<?php echo $x; ?>"></p>
-			  					</div>
-			  				</td>
+							  <td style="padding-left:20px;">
+							  <span id="available_quantity<?php echo $x; ?>" class="form-control" style="width: 180px; background-color: #f5f5f5; padding: 6px 12px;">
+											Available Quantity:
+										</span>
+							</td>
+
 			  				<td style="padding-left:20px;">
 			  					<div class="form-group">
 			  					<input type="number" name="quantity[]" id="quantity<?php echo $x; ?>" onkeyup="getTotal(<?php echo $x ?>)" autocomplete="off" class="form-control" min="1" />
@@ -197,27 +198,41 @@ if($_GET['o'] == 'add') {
 				      <input type="hidden" class="form-control" id="dueValue" name="dueValue" />
 				    </div>
 				  </div> <!--/form-group-->		
+
 				  <div class="form-group">
-				    <label for="clientContact" class="col-sm-3 control-label">Storage Location</label>
-				    <div class="col-sm-9">
-				      <select class="form-control" name="paymentType" id="paymentType">
-				      	<option value="">~~SELECT~~</option>
-				      	<option value="1">Freezer</option>
-				      	<option value="2">Shelf</option>
-				      	<option value="3">Stock House</option>
-				      </select>
-				    </div>
-				  </div> <!--/form-group-->							  
+						<label for="storageSource" class="col-sm-3 control-label">Storage Source</label>
+						<div class="col-sm-9">
+							<select class="form-control" name="storageSource" id="storageSource">
+							<option value="">~~SELECT~~</option>
+							<?php 
+								$sql = "SELECT brand_id, brand_name FROM brands WHERE brand_status = 1 AND brand_active = 1";
+								$result = $connect->query($sql);
+								while($row = $result->fetch_array()) {
+								echo "<option value='".$row['brand_id']."'>".$row['brand_name']."</option>";
+								}
+							?>
+							</select>
+						</div>
+					</div><!--/form-group-->		
+
 				  <div class="form-group">
-				    <label for="clientContact" class="col-sm-3 control-label">Produced By</label>
+				    <label for="clientContact" class="col-sm-3 control-label">Deliver to:</label>
 				    <div class="col-sm-9">
 				      <select class="form-control" name="paymentStatus" id="paymentStatus">
-				      	<option value="">~~SELECT~~</option>
-				      	<option value="1">Cafeteria</option>
-				      	<option value="2">Delivery</option>
+					  <option value="">~~SELECT~~</option>
+				      	<?php 
+				      	$sql = "SELECT brand_id, brand_name, brand_active, brand_status FROM brands WHERE brand_status = 1 AND brand_active = 1";
+								$result = $connect->query($sql);
+
+								while($row = $result->fetch_array()) {
+									echo "<option value='".$row[0]."'>".$row[1]."</option>";
+								} // while
+				      	?>
 				      </select>
 				    </div>
 				  </div> <!--/form-group-->
+				   
+				  <!--
 				  <div class="form-group">
 				    <label for="clientContact" class="col-sm-3 control-label">Order Source</label>
 				    <div class="col-sm-9">
@@ -227,7 +242,8 @@ if($_GET['o'] == 'add') {
 				      	<option value="2">Delivery</option>
 				      </select>
 				    </div>
-				  </div> <!--/form-group-->							  
+				  </div> /form-group -->		
+
 			  </div> <!--/col-md-6-->
 
 
